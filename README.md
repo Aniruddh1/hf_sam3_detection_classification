@@ -148,12 +148,26 @@ All methods return:
 # Basic classification
 python classifier.py
 
-# Test logo detection
+# Test logo detection on multiple images
 python test_logos.py
 
-# Compare all methods
+# Compare all methods (performance benchmark)
 python test_hierarchical.py
 ```
+
+## Test Images
+
+The `test_logos.py` script tests classification across multiple brand categories:
+
+| Category | Test Image | Candidates |
+|----------|------------|------------|
+| Sports | Nike shoe, Adidas sneaker | Nike, Adidas, Puma, Reebok, New Balance |
+| Tech | MacBook, iPhone | Apple, Samsung, Dell, HP, Lenovo |
+| Automotive | Car front view | BMW, Mercedes, Audi, Tesla, Porsche |
+| Food & Beverage | Coffee cup | Starbucks, Dunkin, Costa |
+| Fashion | Luxury handbag | Louis Vuitton, Gucci, Chanel, Prada |
+
+Results are saved to `test_images/` directory.
 
 ## Requirements
 

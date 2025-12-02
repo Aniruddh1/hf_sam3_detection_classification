@@ -31,10 +31,12 @@ wheels/
 *.swp
 *.swo
 
-# Output files
+# Output files (allow test_images/ and examples/)
 *.jpg
 *.png
 *.jpeg
+!test_images/**
+!examples/**
 
 # HuggingFace cache
 .cache/
