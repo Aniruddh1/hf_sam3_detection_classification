@@ -22,66 +22,66 @@ model, processor = load_model(device)
 # =============================================================================
 
 TEST_IMAGES = [
-    # Sports brands
-    {
-        "name": "nike_shoe",
-        "url": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=640",
-        "description": "Red Nike shoe",
-        "detection_prompt": "shoe",
-        "candidates": ["Nike", "Adidas", "Puma", "Reebok", "New Balance", "Under Armour"],
-        "prompt_template": "{label} shoe",
-    },
-    {
-        "name": "adidas_shoe",
-        "url": "https://images.unsplash.com/photo-1518002171953-a080ee817e1f?w=640",
-        "description": "Adidas sneaker",
-        "detection_prompt": "shoe",
-        "candidates": ["Nike", "Adidas", "Puma", "Reebok", "New Balance", "Converse"],
-        "prompt_template": "{label} shoe",
-    },
-    # Tech brands
-    {
-        "name": "apple_macbook",
-        "url": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=640",
-        "description": "MacBook laptop",
-        "detection_prompt": "laptop",
-        "candidates": ["Apple", "Dell", "HP", "Lenovo", "Microsoft", "Asus"],
-        "prompt_template": "{label} laptop",
-    },
-    {
-        "name": "iphone",
-        "url": "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=640",
-        "description": "iPhone",
-        "detection_prompt": "phone",
-        "candidates": ["Apple", "Samsung", "Google", "OnePlus", "Xiaomi", "Huawei"],
-        "prompt_template": "{label} phone",
-    },
-    # Automotive
-    {
-        "name": "car_front",
-        "url": "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=640",
-        "description": "Car front view",
-        "detection_prompt": "car",
-        "candidates": ["BMW", "Mercedes", "Audi", "Tesla", "Porsche", "Toyota"],
-        "prompt_template": "{label} car",
-    },
-    # Food & Beverage
-    {
-        "name": "coffee_cup",
-        "url": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=640",
-        "description": "Coffee cup",
-        "detection_prompt": "coffee cup",
-        "candidates": ["Starbucks", "Dunkin", "Costa", "Tim Hortons", "Peet's"],
-        "prompt_template": "{label} coffee",
-    },
+    # # Sports brands
+    # {
+    #     "name": "nike_shoe",
+    #     "url": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=640",
+    #     "description": "Red Nike shoe",
+    #     "detection_prompt": "shoe",
+    #     "candidates": ["Nike", "Adidas", "Puma", "Reebok", "New Balance", "Under Armour"],
+    #     "prompt_template": "{label} shoe",
+    # },
+    # {
+    #     "name": "adidas_shoe",
+    #     "url": "https://images.unsplash.com/photo-1518002171953-a080ee817e1f?w=640",
+    #     "description": "Adidas sneaker",
+    #     "detection_prompt": "shoe",
+    #     "candidates": ["Nike", "Adidas", "Puma", "Reebok", "New Balance", "Converse"],
+    #     "prompt_template": "{label} shoe",
+    # },
+    # # Tech brands
+    # {
+    #     "name": "apple_macbook",
+    #     "url": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=640",
+    #     "description": "MacBook laptop",
+    #     "detection_prompt": "laptop",
+    #     "candidates": ["Apple", "Dell", "HP", "Lenovo", "Microsoft", "Asus"],
+    #     "prompt_template": "{label} laptop",
+    # },
+    # {
+    #     "name": "iphone",
+    #     "url": "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=640",
+    #     "description": "iPhone",
+    #     "detection_prompt": "phone",
+    #     "candidates": ["Apple", "Samsung", "Google", "OnePlus", "Xiaomi", "Huawei"],
+    #     "prompt_template": "{label} phone",
+    # },
+    # # Automotive
+    # {
+    #     "name": "car_front",
+    #     "url": "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=640",
+    #     "description": "Car front view",
+    #     "detection_prompt": "car",
+    #     "candidates": ["BMW", "Mercedes", "Audi", "Tesla", "Porsche", "Toyota"],
+    #     "prompt_template": "{label} car",
+    # },
+    # # Food & Beverage
+    # {
+    #     "name": "coffee_cup",
+    #     "url": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=640",
+    #     "description": "Coffee cup",
+    #     "detection_prompt": "coffee cup",
+    #     "candidates": ["Starbucks", "Dunkin", "Costa", "Tim Hortons", "Peet's"],
+    #     "prompt_template": "{label} coffee",
+    # },
     # Fashion
     {
         "name": "handbag",
         "url": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=640",
         "description": "Luxury handbag",
-        "detection_prompt": "bag",
-        "candidates": ["Louis Vuitton", "Gucci", "Chanel", "Prada", "Hermes", "Coach"],
-        "prompt_template": "{label} bag",
+        "detection_prompt": "Logo",
+        "candidates": ["Louis Vuitton Logo", "Gucci Logo", "Chanel Logo", "Prada Logo", "Burberry Logo", "Hermes Logo", "Coach Logo"],
+        "prompt_template": "{label} logo",
     },
 ]
 

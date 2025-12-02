@@ -3,3 +3,4 @@ torch>=2.0.0
 torchvision
 pillow
 requests
+# CLIP is included in transformers, no extra install needed

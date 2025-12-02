@@ -69,7 +69,7 @@ results = detect_and_classify_embedding(
 )
 ```
 
-### 3. Hierarchical (`hierarchical_classify`) - MOST ACCURATE
+### 3. Hierarchical (`hierarchical_classify`)
 
 Two-stage classification for large candidate sets. First categorize, then identify.
 
@@ -84,13 +84,45 @@ results = hierarchical_classify(
 )
 ```
 
+### 4. SAM3 + CLIP Hybrid (`classifier_clip.py`) - MOST ACCURATE
+
+**Recommended for best accuracy.** Uses SAM3 for detection and CLIP for classification.
+
+```python
+from classifier_clip import HybridClassifier
+
+classifier = HybridClassifier(device="cpu")
+classifier.set_candidates(["Nike", "Adidas", "Puma"], "a photo of {} logo")
+
+results = classifier.classify(image, detection_prompt="logo")
+
+# Or use functions directly:
+from classifier_clip import load_sam3, load_clip, detect_and_classify_hybrid
+
+sam3_model, sam3_processor = load_sam3(device)
+clip_model, clip_processor = load_clip(device)
+
+results = detect_and_classify_hybrid(
+    image, sam3_model, sam3_processor, clip_model, clip_processor,
+    detection_prompt="shoe",
+    candidates=["Nike", "Adidas", "Puma"],
+    prompt_template="a photo of a {} brand shoe",
+)
+```
+
+**Why hybrid is better:**
+- SAM3 is a **segmentation** model - it finds WHERE objects are
+- CLIP is a **classification** model - it identifies WHAT they are
+- Combining both gives accurate detection + classification
+
 ## Performance Comparison
 
-| Method | Complexity | 50 Candidates | Best For |
-|--------|-----------|---------------|----------|
-| Basic | O(N) passes | ~60s | Single use, small N |
-| Cached Embeddings | O(1) pass | ~2s | Batch processing |
-| Hierarchical | O(cat + items/cat) | ~20s | Large N, best accuracy |
+| Method | Complexity | Speed | Accuracy | Best For |
+|--------|-----------|-------|----------|----------|
+| Basic (SAM3 only) | O(N) passes | Slow | Low | Quick tests |
+| Cached Embeddings | O(1) pass | Fast | Low | Batch processing |
+| Hierarchical | O(cat + N/cat) | Medium | Medium | Large N |
+| **Hybrid (SAM3+CLIP)** | O(1) + O(1) | Fast | **High** | **Production use** |
 
 ## Scalability Guidelines
 
@@ -178,7 +210,8 @@ Results are saved to `test_images/` directory.
 
 ## Files
 
-- `classifier.py` - Main module with all classification methods
+- `classifier.py` - SAM3-only classification methods
+- `classifier_clip.py` - **Hybrid SAM3 + CLIP** (recommended for accuracy)
 - `test_logos.py` - Logo/brand detection example
 - `test_hierarchical.py` - Performance comparison of all methods
 
